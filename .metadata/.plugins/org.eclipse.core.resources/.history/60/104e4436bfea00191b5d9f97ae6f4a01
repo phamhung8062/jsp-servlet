@@ -1,0 +1,27 @@
+package com.laptrinhjavaweb.api;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.laptrinhjavaweb.service.IBuildingservice;
+import com.laptrinhjavaweb.service.IUserservice;
+import com.laptrinhjavaweb.service.impl.BuildingService;
+import com.laptrinhjavaweb.service.impl.UserService;
+@WebServlet(urlPatterns = { "/api-user" })
+public class UserAPI extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private IBuildingservice buildingservice=new BuildingService();
+	private IUserservice userservice=new UserService();
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		
+	}
+
+}

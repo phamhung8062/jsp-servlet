@@ -1,0 +1,7 @@
+package com.laptrinhjavaweb.buider;
+
+public class UserSearchBuilder {
+	private String username;
+	private String password;
+	private String fullname;
+}

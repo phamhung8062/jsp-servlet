@@ -1,0 +1,32 @@
+package com.laptrinhjavaweb.repository.impl;
+
+import java.util.List;
+import java.util.Map;
+
+import com.laptrinhjavaweb.buider.UserSearchBuilder;
+import com.laptrinhjavaweb.entity.UserEntity;
+import com.laptrinhjavaweb.paging.Pageable;
+import com.laptrinhjavaweb.repository.IUserRepository;
+
+public class UserRepository extends SimpleJpaRepository<UserEntity> implements IUserRepository {
+
+	@Override
+	public List<UserEntity> findAll(Map<String, Object> params, Pageable pageable, UserSearchBuilder fieldsearch) {
+		StringBuilder sqlSearch= new StringBuilder("SELECT * FROM user a ");
+		sqlSearch.append(" WHERE 1=1 ");
+		sqlSearch=this.CreateSQLfindAll(sqlSearch, params);
+		String sqlSpecial= UserSqlSpecial(sqlSearch);
+		sqlSearch.append(sqlSpecial);
+		
+		return sqlSearch;
+	}
+
+	private String UserSqlSpecial(StringBuilder sqlSearch) {
+		StringBuilder result=new StringBuilder("");
+		return result.toString();
+	}
+
+	
+
+}
+

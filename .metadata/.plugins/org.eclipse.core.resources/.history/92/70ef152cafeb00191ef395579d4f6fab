@@ -1,0 +1,52 @@
+package com.laptrinhjavaweb.buider;
+
+public class UserSearchBuilder {
+	private String userName;
+
+	private String fullName;
+	private String phone;
+	private String email;
+	private String staffId;
+	public String getUsername() {
+		return userName;
+	}
+	
+	
+	public String getUserName() {
+		return userName;
+	}
+
+
+	public String getFullName() {
+		return fullName;
+	}
+	private UserSearchBuilder(Builder builder) {
+		this.userName=builder.userName;
+		this.fullName=builder.fullName;
+		
+	}
+
+
+	public static class Builder{
+		private String userName;
+
+		private String fullName;
+		
+		
+		public Builder setUserName(String userName) {
+			this.userName = userName;
+			return this;
+		}
+
+
+		public Builder setFullName(String fullName) {
+			this.fullName = fullName;
+			return this;
+		}
+
+
+		public UserSearchBuilder build() {
+			return new UserSearchBuilder(this);
+		}
+	}
+}

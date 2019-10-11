@@ -1,0 +1,46 @@
+package com.laptrinhjavaweb.service.impl;
+
+import java.lang.reflect.Field;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import com.laptrinhjavaweb.buider.BuildingSeachBuilder;
+import com.laptrinhjavaweb.buider.UserSearchBuilder;
+import com.laptrinhjavaweb.converter.UserConverter;
+import com.laptrinhjavaweb.dto.UserDTO;
+import com.laptrinhjavaweb.entity.BuildingEntity;
+import com.laptrinhjavaweb.entity.UserEntity;
+import com.laptrinhjavaweb.paging.Pageable;
+import com.laptrinhjavaweb.repository.IUserRepository;
+import com.laptrinhjavaweb.repository.impl.UserRepository;
+import com.laptrinhjavaweb.service.IUserservice;
+
+
+public  class UserService implements IUserservice {
+	private IUserRepository userRepository;
+	private UserConverter userConverter;
+	public  UserService() {
+		 userRepository = new UserRepository() ;
+		 userConverter = new UserConverter();
+	}
+	@Override
+	public List<UserDTO> findAll(UserSearchBuilder fieldSearch, Pageable pageable) {
+		// Convert theo map
+				Map<String, Object> properties = convertToMapProperties(fieldSearch);
+				List<UserEntity> userEntities = userRepository.findAll(properties, pageable, fieldSearch);
+				return userEntities.stream().map(item -> userConverter.convertToDTO(item)).collect(Collectors.toList());
+	}
+	private Map<String, Object> convertToMapProperties(UserSearchBuilder fieldSearch) {
+		Map<String, Object> properties= new HashMap<>();
+		
+		Field[] fields = UserSearchBuilder.class.getDeclaredFields();
+		for (Field field : fields) {
+			field.setAccessible(true);
+		}
+		return null;
+	}
+	
+	
+}

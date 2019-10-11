@@ -1,0 +1,20 @@
+package com.laptrinhjavaweb.repository.impl;
+
+import java.util.List;
+import java.util.Map;
+
+import com.laptrinhjavaweb.buider.UserSearchBuilder;
+import com.laptrinhjavaweb.entity.UserEntity;
+import com.laptrinhjavaweb.paging.Pageable;
+import com.laptrinhjavaweb.repository.IUserRepository;
+
+public class UserRepository extends SimpleJpaRepository<UserEntity> implements IUserRepository {
+
+	@Override
+	public List<UserEntity> fillAll(Map<String, Object> params, Pageable pageable, UserSearchBuilder fieldsearch) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
+

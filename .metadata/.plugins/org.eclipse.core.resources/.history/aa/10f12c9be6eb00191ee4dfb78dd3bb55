@@ -1,0 +1,25 @@
+package com.laptrinhjavaweb.buider;
+
+public class CustomerSearchBuilder {
+	private String customerName;
+	private String email;
+	private String staffId;
+	private String buildingId;
+	private Integer phone;
+	public String getCustomerName() {
+		return customerName;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public String getStaffId() {
+		return staffId;
+	}
+	public String getBuildingId() {
+		return buildingId;
+	}
+	public Integer getPhone() {
+		return phone;
+	}
+	
+}

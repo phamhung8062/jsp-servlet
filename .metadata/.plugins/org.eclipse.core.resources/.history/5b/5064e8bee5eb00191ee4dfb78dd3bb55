@@ -1,0 +1,10 @@
+package com.laptrinhjavaweb.dto;
+
+public class CustomerDTO  extends AbstractDTO{
+	private String customerName;
+	private String email;
+	private String staffId;
+	private String buildingId;
+	private String phone;
+
+}

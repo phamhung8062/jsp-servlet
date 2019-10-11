@@ -1,0 +1,35 @@
+package com.laptrinhjavaweb.service.impl;
+
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import com.laptrinhjavaweb.buider.BuildingSeachBuilder;
+import com.laptrinhjavaweb.buider.UserSearchBuilder;
+import com.laptrinhjavaweb.converter.UserConverter;
+import com.laptrinhjavaweb.dto.UserDTO;
+import com.laptrinhjavaweb.entity.BuildingEntity;
+import com.laptrinhjavaweb.entity.UserEntity;
+import com.laptrinhjavaweb.paging.Pageable;
+import com.laptrinhjavaweb.repository.IUserRepository;
+import com.laptrinhjavaweb.repository.impl.UserRepository;
+import com.laptrinhjavaweb.service.IUserservice;
+
+
+public  class UserService implements IUserservice {
+	private IUserRepository userRepository;
+	private UserConverter userConverter;
+	public  UserService() {
+		 userRepository = new UserRepository() ;
+		 userConverter = new UserConverter();
+	}
+	@Override
+	public List<UserDTO> findAll(UserSearchBuilder fieldSearch, Pageable pageable) {
+		// Convert theo map
+				Map<String, Object> properties = convertToMapProperties(fieldSearch);
+				List<UserEntity> userEntities = userRepository.findAll(properties, pageable, filedSearch);
+				return userEntities.stream().map(item -> buildingConverter.convertToDTO(item)).collect(Collectors.toList());
+	}
+	
+	
+}

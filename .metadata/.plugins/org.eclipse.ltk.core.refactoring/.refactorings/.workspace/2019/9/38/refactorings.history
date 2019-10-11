@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Jdbc_8_2019-master&apos; to &apos;Jdbc_8_2019-console&apos;" description="Rename resource &apos;Jdbc_8_2019-master&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/Jdbc_8_2019-master" name="Jdbc_8_2019-console" stamp="1568698807939" updateReferences="true"/>
+</session>

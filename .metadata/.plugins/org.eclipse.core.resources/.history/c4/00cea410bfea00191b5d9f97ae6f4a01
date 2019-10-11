@@ -1,0 +1,9 @@
+package com.laptrinhjavaweb.api;
+
+import javax.servlet.http.HttpServlet;
+
+import com.laptrinhjavaweb.utils.HttpUtil;
+
+public class UserAPI extends HttpServlet {
+
+}

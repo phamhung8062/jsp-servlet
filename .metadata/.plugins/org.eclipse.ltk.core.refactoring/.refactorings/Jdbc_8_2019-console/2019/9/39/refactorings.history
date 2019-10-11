@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;com.laptrinhjavaweb.untils&apos; to &apos;com.laptrinhjavaweb.utils&apos;&#x0D;&#x0A;- Original project: &apos;Jdbc_8_2019-console&apos;&#x0D;&#x0A;- Original element: &apos;Jdbc_8_2019-console/src/main/java/com.laptrinhjavaweb.untils&apos;&#x0D;&#x0A;- Renamed element: &apos;Jdbc_8_2019-console/src/main/java/com.laptrinhjavaweb.utils&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;com.laptrinhjavaweb.untils&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src\/main\/java&lt;com.laptrinhjavaweb.untils" name="com.laptrinhjavaweb.utils" qualified="false" references="true" stamp="1569147808467" textual="false" version="1.0"/>
+</session>

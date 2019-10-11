@@ -1,0 +1,56 @@
+package com.laptrinhjavaweb.api;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.laptrinhjavaweb.buider.UserSearchBuilder;
+import com.laptrinhjavaweb.dto.UserDTO;
+import com.laptrinhjavaweb.paging.PageRequest;
+import com.laptrinhjavaweb.paging.Pageable;
+import com.laptrinhjavaweb.service.IUserservice;
+import com.laptrinhjavaweb.service.impl.UserService;
+import com.laptrinhjavaweb.utils.FormUtil;
+@WebServlet(urlPatterns = { "/api-user" })
+public class UserAPI extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private IUserservice userservice=new UserService();
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		
+	}
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		ObjectMapper mapper = new ObjectMapper();
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("application/json");
+		UserDTO user = FormUtil.toModel(UserDTO.class, request);
+		//BuildingDTO buildings = HttpUtil.of(request.getReader()).toModel(BuildingDTO.class);
+		UserSearchBuilder uBuilder=new UserSearchBuilder.Builder().setUsername(user.getUserName()).setFullname(user.getFullName()).build();
+				
+		Pageable pageable = new PageRequest(user.getPage(), user.getLimit());
+		List<UserDTO> users = userservice.findAll(uBuilder, pageable);
+		mapper.writeValue(response.getOutputStream(), users);
+
+	}
+
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+	}
+
+	protected void doPut(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+	}
+
+
+}

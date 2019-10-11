@@ -1,0 +1,62 @@
+package com.laptrinhjavaweb.buider;
+
+import com.laptrinhjavaweb.buider.BuildingSeachBuilder.Builder;
+
+public class CustomerSearchBuilder {
+	private String customerName;
+	private String email;
+	private String staffId;
+	private String buildingId;
+	private Integer phone;
+	public String getCustomerName() {
+		return customerName;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public String getStaffId() {
+		return staffId;
+	}
+	public String getBuildingId() {
+		return buildingId;
+	}
+	public Integer getPhone() {
+		return phone;
+	}
+	private CustomerSeachBuilder(Builder builder) {
+		
+	}
+
+	public static class Builder {
+		private String customerName;
+		private String email;
+		private String staffId;
+		private String buildingId;
+		private Integer phone;
+		
+		public Builder setCustomerName(String customerName) {
+			this.customerName = customerName;
+		}
+
+		public Builder setEmail(String email) {
+			this.email = email;
+		}
+
+		public Builder setStaffId(String staffId) {
+			this.staffId = staffId;
+		}
+
+		public Builder setBuildingId(String buildingId) {
+			this.buildingId = buildingId;
+		}
+
+		public Builder setPhone(Integer phone) {
+			this.phone = phone;
+		}
+
+		public CustomerSeachBuilder build() {
+			return new CustomerSeachBuilder(this);
+		}
+	}
+	
+}
